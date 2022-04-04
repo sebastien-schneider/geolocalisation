@@ -23,7 +23,7 @@ const objectiveData = [
     coords: [43.5687258, 5.3547487],
     title: "L'Epi d'Or",
     description: "L'Epi d'Or",
-    image: "",
+    image: "./assets/images/objectives/boulangerie.jpg",
     audio: "",
     question: "Enigme 3",
     choices: ["NEXT"],
