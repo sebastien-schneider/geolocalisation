@@ -5,9 +5,9 @@ const objectiveData = [
     description: "Mairie D'eguilles",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 1",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.5695755, 5.3542296],
@@ -15,9 +15,9 @@ const objectiveData = [
     description: "Cave du Grand Logis",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 2",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.5687258, 5.3547487],
@@ -25,9 +25,9 @@ const objectiveData = [
     description: "L'Epi d'Or",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 3",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.5689807, 5.3546114],
@@ -35,9 +35,9 @@ const objectiveData = [
     description: "Ecurie du grand logis",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 4",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.5683567, 5.3526293],
@@ -45,9 +45,9 @@ const objectiveData = [
     description: "Parc 1",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 5a",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.568623, 5.3528331],
@@ -55,9 +55,9 @@ const objectiveData = [
     description: "Parc 2",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 5b",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.5682187, 5.3529082],
@@ -65,9 +65,9 @@ const objectiveData = [
     description: "Parc entrée",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 5c",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.5685394, 5.3529592],
@@ -75,19 +75,19 @@ const objectiveData = [
     description: "parc 4",
     image: "",
     audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    question: "Enigme 5d",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   {
     coords: [43.5684987, 5.3544427],
     title: "devant la plaque Gabriel Payeur",
     description: "devant la plaque Gabriel Payeur",
-    image: "",
-    audio: "",
-    question: "",
-    choices: [],
-    answer: "",
+    image: "./assets/images/objectives/chapelle2.jpg",
+    audio: "./assets/sons/cloches.mp3",
+    question: "Enigme 6",
+    choices: ["NEXT"],
+    answer: "NEXT",
   },
   /**
   {
@@ -189,6 +189,7 @@ layerToggleButton.onclick = toggleLayer
 
 /* Initialisation variables nécessaires à l'objectif en cours et sa popup */
 
+const geoThreshold = 50
 let popupContent = document.getElementById("popupInfo")
 let popup = new L.Popup()
 let popupIndex = parseInt(localStorage.popupIndex)
@@ -245,7 +246,7 @@ function createMarker() {
     color: "blue",
     fillColor: "lightblue",
     fillOpacity: 0.5,
-    radius: 50,
+    radius: geoThreshold,
   })
     .addTo(myMap)
     .on("click", () => {
@@ -419,7 +420,7 @@ function success(pos) {
     positionMarker.setLatLng(newLatLng)
   }
   let objectiveDistance = getDistance(currentPos, goalCoords)
-  if (objectiveDistance < 50) {
+  if (objectiveDistance < geoThreshold) {
     displayPopup()
   }
 }
