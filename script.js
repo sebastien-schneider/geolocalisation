@@ -189,7 +189,7 @@ layerToggleButton.onclick = toggleLayer
 
 /* Initialisation variables nécessaires à l'objectif en cours et sa popup */
 
-const geoThreshold = 50
+const geoThreshold = 10
 let popupContent = document.getElementById("popupInfo")
 let popup = new L.Popup()
 let popupIndex = parseInt(localStorage.popupIndex)
